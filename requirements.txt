@@ -1,0 +1,57 @@
+# ──────────────────────────────────────────────────────────
+#  CyberToolkit — requirements.txt
+#  Dependencias externas con versiones exactas (testadas en v1.0)
+# ──────────────────────────────────────────────────────────
+
+# ──────────────────────────────────────────────────────────
+#  CORE — usadas en múltiples herramientas
+# ──────────────────────────────────────────────────────────
+
+# Colores y formateo de terminal (utils.py)
+colorama==0.4.6
+
+# Peticiones HTTP — url_analyzer.py
+requests==2.33.1
+
+# ──────────────────────────────────────────────────────────
+#  FASE 2 — Análisis de archivos y metadatos
+# ──────────────────────────────────────────────────────────
+
+# Extracción de metadatos EXIF/GPS de imágenes — metadata_extractor.py
+Pillow==12.1.1
+
+# Lectura de metadatos de documentos PDF — metadata_extractor.py
+PyPDF2==3.0.1
+
+# Lectura de metadatos de documentos Word (.docx) — metadata_extractor.py
+python-docx==1.2.0
+
+# ──────────────────────────────────────────────────────────
+#  FASE 3 — Criptografía y captura de tráfico
+# ──────────────────────────────────────────────────────────
+
+# AES-256-GCM, PBKDF2-HMAC-SHA256 — file_encryptor.py
+cryptography==46.0.6
+
+# Captura y análisis de paquetes de red [requiere root] — packet_sniffer.py
+scapy==2.7.0
+
+# ──────────────────────────────────────────────────────────
+#  NOTAS DE INSTALACIÓN
+# ──────────────────────────────────────────────────────────
+#
+#  Instalación completa:
+#    pip install -r requirements.txt
+#
+#  Instalación mínima (herramientas 2, 3, 9 y 10 sin deps externas):
+#    pip install colorama requests
+#
+#  En Linux, scapy puede necesitar libpcap:
+#    sudo apt install libpcap-dev     # Debian/Ubuntu
+#    sudo dnf install libpcap-devel   # Fedora/RHEL
+#
+#  En macOS con Homebrew:
+#    brew install libpcap
+#
+#  En Windows, scapy requiere Npcap:
+#    https://npcap.com/#download

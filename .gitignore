@@ -1,0 +1,45 @@
+cat > .gitignore << 'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Entorno virtual
+venv/
+.venv/
+env/
+.env/
+
+# CyberToolkit — archivos generados en uso
+*.enc
+*.checksum
+.integrity_baseline.json
+*.integrity_report.txt
+~/.cybertoolkit/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+EOF
