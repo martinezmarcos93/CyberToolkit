@@ -57,7 +57,8 @@ def _import_tools() -> dict[str, object]:
     _try_import("7", "tools.file_encryptor",     "Cifrador / descifrador AES-256")
     _try_import("8", "tools.metadata_extractor", "Extractor de metadatos")
     _try_import("9", "tools.password_generator", "Generador de contraseñas seguras")
-    _try_import("0", "tools.entropy_calc",       "Calculadora de entropía de archivos")
+    _try_import("10", "tools.entropy_calc",       "Calculadora de entropía de archivos")
+    _try_import("11", "tools.subdomain_enum",     "Enumerador de subdominios")
 
     return tools
 
@@ -97,7 +98,8 @@ TOOL_STATUS = {
     "7": "✅",   # Fase 3 — implementada
     "8": "✅",   # Fase 2 — implementada
     "9": "✅",   # Fase 1 — implementada
-    "0": "✅",   # Fase 1 — implementada
+    "10": "✅",  # Fase 1 — implementada
+    "11": "✅",  # Fase 2 — implementada
 }
 
 TOOL_NAMES = {
@@ -110,7 +112,8 @@ TOOL_NAMES = {
     "7": "Cifrador / descifrador AES-256",
     "8": "Extractor de metadatos",
     "9": "Generador de contraseñas seguras",
-    "0": "Calculadora de entropía de archivos",
+    "10": "Calculadora de entropía de archivos",
+    "11": "Enumerador de subdominios",
 }
 
 
@@ -126,7 +129,8 @@ def _print_full_menu() -> None:
         "7": "Criptografía simétrica",
         "8": "Forense / Privacidad",
         "9": "Aleatoriedad / Secrets",
-        "0": "Malware / Estadística",
+        "10": "Malware / Estadística",
+        "11": "OSINT / Reconocimiento",
     }
 
     print()
@@ -135,7 +139,7 @@ def _print_full_menu() -> None:
     print(f"  {'#':<5} {'Est':<4} {'Herramienta':<36} {'Área'}")
     separator("─", 64)
 
-    for key in ["1","2","3","4","5","6","7","8","9","0"]:
+    for key in ["1","2","3","4","5","6","7","8","9","10","11"]:
         num_fmt  = cyan(f"[{key}]")
         status   = TOOL_STATUS[key]
         name_fmt = white(TOOL_NAMES[key]) if status == "✅" else dim(TOOL_NAMES[key])
@@ -207,7 +211,7 @@ def main() -> None:
 
         else:
             print()
-            error(f"Opción '{choice}' no válida. Ingresá un número del 0 al 9 o Q para salir.")
+            error(f"Opción '{choice}' no válida. Ingresá un número del menú o Q para salir.")
             pause()
 
 

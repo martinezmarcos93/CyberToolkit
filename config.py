@@ -238,6 +238,17 @@ HOMOGRAPH_CHARS: set[str] = {
     "ɑ","ɡ","ʟ","ᴏ",               # IPA look-alikes
 }
 
+# ──────────────────────────────────────────────
+#  Diccionario de subdominios comunes (Subdomain Enum)
+# ──────────────────────────────────────────────
+COMMON_SUBDOMAINS: list[str] = [
+    "www", "mail", "ftp", "localhost", "webmail", "smtp", "pop", "ns1", "web", "cpanel",
+    "ns2", "test", "m", "blog", "dev", "server", "ns", "api", "download", "admin",
+    "imap", "shop", "forum", "support", "vpn", "db", "app", "help", "secure", "portal",
+    "login", "store", "intranet", "cdn", "beta", "gw", "dns", "host", "staging", "api2"
+]
+
+
 
 # ──────────────────────────────────────────────
 #  Configuración del monitor de integridad
