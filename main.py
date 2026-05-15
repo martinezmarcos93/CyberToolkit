@@ -72,6 +72,7 @@ def _import_tools() -> dict[str, object]:
     _try_import("22", "tools.ids_lite",           "Sistema de detección de intrusiones ligero")
     _try_import("23", "tools.honeypot",           "Honeypot de servicios TCP")
     _try_import("24", "tools.log_analyzer",       "Analizador de logs de seguridad")
+    _try_import("25", "tools.vuln_scanner",       "Escáner de vulnerabilidades básico")
 
     return tools
 
@@ -126,6 +127,7 @@ TOOL_STATUS = {
     "22": "✅",  # Fase 3.0 — implementada
     "23": "✅",  # Fase 3.0 — implementada
     "24": "✅",  # Fase 3.0 — implementada
+    "25": "✅",  # Fase 3.0 — implementada
 }
 
 TOOL_NAMES = {
@@ -153,6 +155,7 @@ TOOL_NAMES = {
     "22": "Sistema de detección de intrusiones ligero",
     "23": "Honeypot de servicios TCP",
     "24": "Analizador de logs de seguridad",
+    "25": "Escáner de vulnerabilidades básico",
 }
 
 
@@ -183,6 +186,7 @@ def _print_full_menu() -> None:
         "22": "Blue Team / Defensa",
         "23": "Blue Team / Defensa",
         "24": "Blue Team / Defensa",
+        "25": "Blue Team / Defensa",
     }
 
     print()
@@ -191,7 +195,7 @@ def _print_full_menu() -> None:
     print(f"  {'#':<5} {'Est':<4} {'Herramienta':<36} {'Área'}")
     separator("─", 64)
 
-    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"]:
+    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"]:
         num_fmt  = cyan(f"[{key}]")
         status   = TOOL_STATUS[key]
         name_fmt = white(TOOL_NAMES[key]) if status == "✅" else dim(TOOL_NAMES[key])
