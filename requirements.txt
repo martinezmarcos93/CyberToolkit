@@ -25,6 +25,7 @@ PyPDF2==3.0.1
 
 # Lectura de metadatos de documentos Word (.docx) — metadata_extractor.py
 python-docx==1.2.0
+bcrypt==4.1.2
 
 # ──────────────────────────────────────────────────────────
 #  FASE 3 — Criptografía y captura de tráfico
