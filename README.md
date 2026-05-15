@@ -225,17 +225,17 @@ Oculta y extrae mensajes en imágenes usando LSB (Least Significant Bit) stegano
 
 ---
 
-### 🌐 v2.2 — Análisis de tráfico y protocolos
+### ✅ v2.2 — Análisis de tráfico y protocolos
 
-#### 19. `pcap_analyzer.py` — Analizador de capturas PCAP/PCAPNG
+- [x] **19. `pcap_analyzer.py`** — Analizador de capturas PCAP/PCAPNG
 Parseo de archivos `.pcap` exportados de Wireshark/tcpdump. Reconstrucción de sesiones TCP, extracción de archivos transferidos por HTTP, detección de credenciales en texto plano, análisis de patrones de tráfico y generación de reporte HTML.
 **Conceptos:** PCAP, stream reassembly, carving, forense de red.
 
-#### 20. `arp_monitor.py` — Detector de ARP Spoofing / Poisoning
+- [x] **20. `arp_monitor.py`** — Detector de ARP Spoofing / Poisoning
 Monitorea la tabla ARP de la red local en tiempo real. Detecta inconsistencias MAC-IP, cambios inesperados de MAC y ataques de ARP poisoning que preceden a ataques MITM. Envía alertas y registra eventos.
 **Conceptos:** ARP, MITM, poisoning, man-in-the-middle, LAN security.
 
-#### 21. `dns_analyzer.py` — Analizador avanzado de DNS
+- [x] **21. `dns_analyzer.py`** — Analizador avanzado de DNS
 Detección de DNS tunneling (exfiltración de datos por DNS), análisis de subdominios anómalos de longitud extrema, consultas a dominios DGA (Domain Generation Algorithm), detección de Fast-Flux y DNS rebinding.
 **Conceptos:** DNS tunneling, DGA, fast-flux, data exfiltration, C2 communication.
 
