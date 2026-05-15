@@ -301,7 +301,7 @@ Correlaciona eventos de múltiples fuentes (logs del sistema, timestamps de arch
 
 ---
 
-### 🤖 v4.0 — Inteligencia de amenazas y automatización
+### ✅ v4.0 — Inteligencia de amenazas y automatización
 
 #### 34. `threat_intel.py` — Consultas a fuentes de Threat Intelligence
 Integración con APIs públicas: VirusTotal (archivos/URLs/IPs), AbuseIPDB (reputación de IPs), AlienVault OTX (indicadores de compromiso), Shodan (dispositivos expuestos) y Have I Been Pwned (emails comprometidos). Dashboard unificado de resultados.

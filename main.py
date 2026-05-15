@@ -83,6 +83,9 @@ def _import_tools() -> dict[str, object]:
     _try_import("31", "tools.disk_forensics",     "Análisis forense de imágenes de disco")
     _try_import("32", "tools.memory_analyzer",    "Análisis básico de volcados de memoria (RAM)")
     _try_import("33", "tools.timeline_builder",   "Constructor de línea de tiempo forense")
+    _try_import("34", "tools.threat_intel",       "Consultas a fuentes de Threat Intelligence")
+    _try_import("35", "tools.c2_detector",        "Detector de comunicaciones C2")
+    _try_import("36", "tools.report_generator",   "Generador de reportes de seguridad")
 
     return tools
 
@@ -146,6 +149,9 @@ TOOL_STATUS = {
     "31": "✅",  # Fase 3.2 — implementada
     "32": "✅",  # Fase 3.2 — implementada
     "33": "✅",  # Fase 3.2 — implementada
+    "34": "✅",  # Fase 4.0 — implementada
+    "35": "✅",  # Fase 4.0 — implementada
+    "36": "✅",  # Fase 4.0 — implementada
 }
 
 TOOL_NAMES = {
@@ -182,6 +188,9 @@ TOOL_NAMES = {
     "31": "Análisis forense de imágenes de disco",
     "32": "Análisis básico de volcados de memoria (RAM)",
     "33": "Constructor de línea de tiempo forense",
+    "34": "Consultas a fuentes de Threat Intelligence",
+    "35": "Detector de comunicaciones C2",
+    "36": "Generador de reportes de seguridad",
 }
 
 
@@ -221,6 +230,9 @@ def _print_full_menu() -> None:
         "31": "Forense / DFIR",
         "32": "Forense / DFIR",
         "33": "Forense / DFIR",
+        "34": "Threat Intel",
+        "35": "Red / TCP-IP",
+        "36": "Reporting / Gestión",
     }
 
     print()
@@ -229,7 +241,7 @@ def _print_full_menu() -> None:
     print(f"  {'#':<5} {'Est':<4} {'Herramienta':<36} {'Área'}")
     separator("─", 64)
 
-    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33"]:
+    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36"]:
         num_fmt  = cyan(f"[{key}]")
         status   = TOOL_STATUS[key]
         name_fmt = white(TOOL_NAMES[key]) if status == "✅" else dim(TOOL_NAMES[key])
