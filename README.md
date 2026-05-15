@@ -205,21 +205,21 @@ Escaneo de redes wireless cercanas con detección de cifrado (WEP/WPA/WPA2/WPA3)
 
 ---
 
-### 🔐 v2.1 — Herramientas avanzadas de criptoanálisis
+### ✅ v2.1 — Herramientas avanzadas de criptoanálisis
 
-#### 15. `hash_cracker.py` — Crackeador de hashes por diccionario y reglas
+- [x] **15. `hash_cracker.py`** — Crackeador de hashes por diccionario y reglas
 Ataque de diccionario sobre hashes MD5/SHA-1/SHA-256/bcrypt con soporte de reglas de mutación (l33tspeak, sufijos numéricos, mayúsculas). Integración con listas de RockYou y SecLists. Estimación de tiempo restante en tiempo real.
 **Conceptos:** ataque de diccionario, rainbow tables, reglas de hashcat, GPU vs CPU.
 
-#### 16. `jwt_analyzer.py` — Analizador y manipulador de JSON Web Tokens
+- [x] **16. `jwt_analyzer.py`** — Analizador y manipulador de JSON Web Tokens
 Decodificación de JWT sin verificar, detección del algoritmo (`alg: none` attack, RS256→HS256 confusion), fuerza bruta de secretos débiles, forja de tokens con clave conocida.
 **Conceptos:** JWT, claims, firma digital, vulnerabilidades de implementación.
 
-#### 17. `tls_auditor.py` — Auditor completo de configuración TLS/SSL
+- [x] **17. `tls_auditor.py`** — Auditor completo de configuración TLS/SSL
 Verifica versiones soportadas (SSLv3, TLS 1.0/1.1 deprecados), cipher suites débiles, vulnerabilidades conocidas (BEAST, POODLE, Heartbleed, DROWN, ROBOT), validez del certificado, cadena de confianza y configuración HSTS/HPKP.
 **Conceptos:** TLS, cipher suites, PKI, vulnerabilidades de protocolo, perfect forward secrecy.
 
-#### 18. `steganography.py` — Esteganografía en imágenes (LSB)
+- [x] **18. `steganography.py`** — Esteganografía en imágenes (LSB)
 Oculta y extrae mensajes en imágenes usando LSB (Least Significant Bit) steganography. Detecta imágenes con posible contenido oculto mediante análisis estadístico del LSB y comparación de histogramas.
 **Conceptos:** esteganografía, LSB, análisis de imagen, covert channels.
 
