@@ -185,21 +185,21 @@ python-docx==1.2.0
 
 ---
 
-### 🔬 v2.0 — Herramientas avanzadas de reconocimiento (OSINT / Red)
+### ✅ v2.0 — Herramientas avanzadas de reconocimiento (OSINT / Red)
 
-#### 11. `subdomain_enum.py` — Enumerador de subdominios
+- [x] **11. `subdomain_enum.py`** — Enumerador de subdominios
 Descubrimiento de subdominios mediante fuerza bruta con diccionario, resolución DNS masiva y búsqueda en Certificate Transparency Logs (crt.sh). Detección de subdomain takeover (CNAME apuntando a servicio inexistente).
 **Conceptos:** DNS, wildcard, zone transfer, CT Logs, takeover.
 
-#### 12. `banner_grabber.py` — Grabber de banners de servicios
+- [x] **12. `banner_grabber.py`** — Grabber de banners de servicios
 Conecta a puertos abiertos y extrae el banner de identificación del servicio (versión de SSH, FTP, SMTP, HTTP Server header). Correlaciona versiones con CVEs conocidos usando una base local.
 **Conceptos:** fingerprinting, service enumeration, version disclosure.
 
-#### 13. `whois_osint.py` — OSINT sobre dominios e IPs
-Consultas WHOIS, geolocalización de IPs, ASN lookup, historial DNS pasivo, búsqueda en Shodan (con API key), detección de tecnologías web (Wappalyzer-style) y análisis de cabeceras HTTP de seguridad.
+- [x] **13. `whois_osint.py`** — OSINT sobre dominios e IPs
+Consultas WHOIS, geolocalización de IPs, ASN lookup, búsqueda en Shodan, detección de tecnologías web y análisis de cabeceras HTTP de seguridad.
 **Conceptos:** OSINT, reconocimiento pasivo, threat intelligence.
 
-#### 14. `wifi_scanner.py` — Escáner de redes Wi-Fi
+- [x] **14. `wifi_scanner.py`** — Escáner de redes Wi-Fi
 Escaneo de redes wireless cercanas con detección de cifrado (WEP/WPA/WPA2/WPA3), intensidad de señal, canal y fabricante por OUI. Alerta sobre redes con WEP o sin cifrado.
 **Conceptos:** 802.11, SSID, BSSID, cifrado wireless, rogue AP.
 
