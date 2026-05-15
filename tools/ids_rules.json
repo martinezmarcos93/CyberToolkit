@@ -1,0 +1,49 @@
+{
+    "rules": [
+        {
+            "id": 1001,
+            "name": "Nmap Scan (User-Agent)",
+            "protocol": "TCP",
+            "condition": "payload_contains",
+            "value": "Nmap Scripting Engine",
+            "severity": "HIGH",
+            "description": "Se detectó tráfico de escaneo de Nmap."
+        },
+        {
+            "id": 1002,
+            "name": "Nikto Web Scanner",
+            "protocol": "TCP",
+            "condition": "payload_contains",
+            "value": "Nikto",
+            "severity": "HIGH",
+            "description": "Se detectó el escáner de vulnerabilidades Nikto."
+        },
+        {
+            "id": 1003,
+            "name": "Posible SQL Injection (URL)",
+            "protocol": "TCP",
+            "condition": "payload_regex",
+            "value": "(?i)(UNION.*SELECT|SELECT.*FROM|DROP.*TABLE|1=1)",
+            "severity": "CRITICAL",
+            "description": "Patrón básico de SQL Injection detectado en el payload."
+        },
+        {
+            "id": 1004,
+            "name": "Posible XSS (Cross-Site Scripting)",
+            "protocol": "TCP",
+            "condition": "payload_regex",
+            "value": "(?i)(<script>|javascript:|onerror=)",
+            "severity": "HIGH",
+            "description": "Patrón básico de XSS detectado."
+        },
+        {
+            "id": 1005,
+            "name": "Intento de SSH Brute Force (Banner)",
+            "protocol": "TCP",
+            "condition": "payload_contains",
+            "value": "SSH-2.0-Nmap",
+            "severity": "MEDIUM",
+            "description": "Escaneo de servicio SSH detectado."
+        }
+    ]
+}
