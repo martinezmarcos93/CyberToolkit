@@ -175,12 +175,12 @@ python-docx==1.2.0
 
 ---
 
-### 🔜 v1.1 — Mejoras de infraestructura
+### ✅ v1.1 — Mejoras de infraestructura
 
-- [ ] **Exportación de resultados** — guardar salidas en `.txt`, `.json` y `.html` desde cualquier herramienta
-- [ ] **Modo batch** — procesar múltiples IPs, archivos o URLs desde un fichero de entrada `.txt`
-- [ ] **Logging de sesión** — registro automático de todas las acciones con timestamp en `~/.cybertoolkit/session.log`
-- [ ] **Configuración por archivo** — `.cybertoolkitrc` para personalizar timeouts, límites y preferencias
+- [x] **Exportación de resultados** — guardar salidas en `.txt`, `.json` y `.html` desde cualquier herramienta
+- [x] **Modo batch** — procesar múltiples IPs, archivos o URLs desde un fichero de entrada `.txt`
+- [x] **Logging de sesión** — registro automático de todas las acciones con timestamp en `~/.cybertoolkit/session.log`
+- [x] **Configuración por archivo** — `.cybertoolkitrc` para personalizar timeouts, límites y preferencias
 - [ ] **Empaquetado con PyInstaller** — ejecutable único sin necesidad de Python instalado
 
 ---

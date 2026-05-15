@@ -10,13 +10,61 @@ APP_NAME    = "CyberToolkit"
 APP_VERSION = "1.0"
 APP_AUTHOR  = "Educativo — solo entornos controlados"
 
+import os
+import json
+from pathlib import Path
+
+# ──────────────────────────────────────────────
+#  Configuración dinámica (.cybertoolkitrc)
+# ──────────────────────────────────────────────
+USER_HOME = Path.home()
+CTK_DIR = USER_HOME / ".cybertoolkit"
+CONFIG_FILE = CTK_DIR / "cybertoolkitrc.json"
+SESSION_LOG_FILE = CTK_DIR / "session.log"
+
+SETTINGS = {
+    "log_level": "INFO",
+    "export_format": "txt",
+    "socket_timeout": 0.5,
+    "max_threads": 100,
+    "sniffer_pkt_limit": 50,
+    "file_read_chunk": 65536
+}
+
+def load_config() -> None:
+    """Carga la configuración desde ~/.cybertoolkit/cybertoolkitrc.json."""
+    if not CTK_DIR.exists():
+        CTK_DIR.mkdir(parents=True, exist_ok=True)
+    if CONFIG_FILE.exists():
+        try:
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                user_settings = json.load(f)
+                SETTINGS.update(user_settings)
+        except Exception:
+            pass
+    else:
+        save_config()
+
+def save_config() -> None:
+    """Guarda la configuración actual en ~/.cybertoolkit/cybertoolkitrc.json."""
+    if not CTK_DIR.exists():
+        CTK_DIR.mkdir(parents=True, exist_ok=True)
+    try:
+        with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+            json.dump(SETTINGS, f, indent=4)
+    except Exception:
+        pass
+
+# Inicializar config
+load_config()
+
 # ──────────────────────────────────────────────
 #  Configuración general
 # ──────────────────────────────────────────────
-SOCKET_TIMEOUT      = 0.5    # segundos por intento de conexión TCP
-MAX_THREADS         = 100    # hilos simultáneos en el escáner de puertos
-SNIFFER_PKT_LIMIT   = 50     # máximo de paquetes capturados por sesión
-FILE_READ_CHUNK     = 65536  # bytes por chunk al leer archivos grandes (64 KB)
+SOCKET_TIMEOUT      = SETTINGS.get("socket_timeout", 0.5)
+MAX_THREADS         = SETTINGS.get("max_threads", 100)
+SNIFFER_PKT_LIMIT   = SETTINGS.get("sniffer_pkt_limit", 50)
+FILE_READ_CHUNK     = SETTINGS.get("file_read_chunk", 65536)
 
 # ──────────────────────────────────────────────
 #  Diccionario de puertos comunes

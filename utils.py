@@ -7,6 +7,26 @@ import os
 import re
 import socket
 import ipaddress
+import logging
+import json
+import datetime
+from pathlib import Path
+from config import SESSION_LOG_FILE, SETTINGS
+from config import SESSION_LOG_FILE, SETTINGS
+
+# ──────────────────────────────────────────────
+#  Configuración del Logger
+# ──────────────────────────────────────────────
+logger = logging.getLogger("CyberToolkit")
+logger.setLevel(getattr(logging, SETTINGS.get("log_level", "INFO").upper(), logging.INFO))
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+if not SESSION_LOG_FILE.parent.exists():
+    SESSION_LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+file_handler = logging.FileHandler(SESSION_LOG_FILE, encoding="utf-8")
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 # ──────────────────────────────────────────────
 #  Colores con colorama (fallback si no está)
@@ -59,22 +79,27 @@ def white(text: str) -> str:
 def ok(msg: str) -> None:
     """[✓ OK] Operación exitosa."""
     print(f"{green('[✓ OK]')} {msg}")
+    logger.info(f"[OK] {msg}")
 
 def error(msg: str) -> None:
     """[✗ ERROR] Error o fallo."""
     print(f"{red('[✗ ERROR]')} {msg}")
+    logger.error(f"[ERROR] {msg}")
 
 def warn(msg: str) -> None:
     """[⚠ WARN] Advertencia."""
     print(f"{yellow('[⚠ WARN]')} {msg}")
+    logger.warning(f"[WARN] {msg}")
 
 def info(msg: str) -> None:
     """[i INFO] Información general."""
     print(f"{cyan('[i INFO]')} {msg}")
+    logger.info(f"[INFO] {msg}")
 
 def result(label: str, value: str) -> None:
     """Muestra un par clave-valor con formato."""
     print(f"  {dim('›')} {white(label)}: {value}")
+    logger.info(f"[RESULT] {label}: {value}")
 
 
 # ──────────────────────────────────────────────
@@ -230,3 +255,40 @@ def format_size(num_bytes: int) -> str:
             return f"{num_bytes:.1f} {unit}"
         num_bytes /= 1024
     return f"{num_bytes:.1f} PB"
+
+# ──────────────────────────────────────────────
+#  Exportación de Resultados
+# ──────────────────────────────────────────────
+def export_results(tool_name: str, data: dict, export_format: str = None) -> None:
+    """Exporta los resultados a un archivo (.txt, .json, .html)."""
+    if export_format is None:
+        export_format = SETTINGS.get("export_format", "txt")
+    
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{tool_name}_{timestamp}.{export_format}"
+    
+    output_dir = Path("outputs")
+    if not output_dir.exists():
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+    filepath = output_dir / filename
+    
+    try:
+        if export_format == "json":
+            with open(filepath, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=4)
+        elif export_format == "html":
+            with open(filepath, "w", encoding="utf-8") as f:
+                html_content = f"<html><head><meta charset='utf-8'><title>{tool_name} Results</title></head><body><h1>{tool_name} Results</h1><pre>{json.dumps(data, indent=4)}</pre></body></html>"
+                f.write(html_content)
+        else: # txt
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(f"=== {tool_name} Results ===\n")
+                f.write(f"Fecha: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                f.write("-" * 40 + "\n")
+                for k, v in data.items():
+                    f.write(f"{k}: {v}\n")
+        
+        info(f"Resultados exportados exitosamente a: {filepath}")
+    except Exception as e:
+        error(f"Error al exportar resultados: {e}")

@@ -6,6 +6,8 @@ Ctrl+C en cualquier herramienta vuelve al menú sin cerrar el programa.
 
 import os
 import sys
+import argparse
+from config import SETTINGS
 
 
 # ──────────────────────────────────────────────
@@ -244,14 +246,41 @@ def _print_full_menu() -> None:
 # ──────────────────────────────────────────────
 #  Bucle principal del menú
 # ──────────────────────────────────────────────
+def parse_args():
+    parser = argparse.ArgumentParser(description="CyberToolkit - Modo Batch")
+    parser.add_argument("--tool", type=str, help="Número de herramienta para ejecutar directamente")
+    parser.add_argument("--batch", type=str, help="Archivo de entrada batch (.txt) con objetivos")
+    parser.add_argument("--export", type=str, choices=["txt", "json", "html"], help="Formato de exportación")
+    return parser.parse_args()
+
 def main() -> None:
-    # Mostrar banner y aviso legal una sola vez
-    print_banner()
-    _print_legal_notice()
+    args = parse_args()
+    if args.export:
+        SETTINGS["export_format"] = args.export
+    if args.batch:
+        SETTINGS["batch_file"] = args.batch
 
     # Cargar herramientas
     tools = _import_tools()
     available = {k for k, v in TOOL_STATUS.items() if v == "✅"}
+
+    # Si se pasa un tool específico por CLI, se ejecuta sin menú
+    if args.tool:
+        choice = str(args.tool)
+        if choice in tools and choice in available:
+            try:
+                tools[choice]()
+            except KeyboardInterrupt:
+                pass
+            except Exception as e:
+                error(f"Error ejecutando herramienta {choice}: {e}")
+        else:
+            error(f"Herramienta {choice} no disponible.")
+        return
+
+    # Mostrar banner y aviso legal una sola vez (modo interactivo)
+    print_banner()
+    _print_legal_notice()
 
     while True:
         # Redibujar el menú completo en cada iteración
