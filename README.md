@@ -241,19 +241,19 @@ Detección de DNS tunneling (exfiltración de datos por DNS), análisis de subdo
 
 ---
 
-### 🛡️ v3.0 — Herramientas de ciberdefensa y detección
+### ✅ v3.0 — Herramientas de ciberdefensa y detección
 
-#### 22. `ids_lite.py` — Sistema de detección de intrusiones ligero
-Motor de reglas tipo Snort/Suricata simplificado. Analiza tráfico en tiempo real con reglas definidas en YAML (detección de port scan, login brute force, shellcode en payload, User-Agent anómalos, tráfico C2 conocido). Genera alertas con nivel de severidad.
+- [x] **22. `ids_lite.py`** — Sistema de detección de intrusiones ligero
+Motor de reglas tipo Snort/Suricata simplificado. Analiza tráfico en tiempo real con reglas definidas en JSON (detección de port scan, login brute force, shellcode en payload, User-Agent anómalos, tráfico C2 conocido). Genera alertas con nivel de severidad.
 **Conceptos:** IDS/IPS, firmas, reglas BPF, detección de anomalías, SIEM.
 
-#### 23. `honeypot.py` — Honeypot de servicios TCP
-Levanta servicios falsos en puertos comunes (22/SSH, 80/HTTP, 3306/MySQL, 5432/PG) que registran cada intento de conexión, credenciales usadas y payloads enviados. Dashboard en tiempo real con estadísticas de ataques.
+- [x] **23. `honeypot.py`** — Honeypot de servicios TCP
+Levanta servicios falsos en puertos comunes (22/SSH, 80/HTTP, 3306/MySQL, 21/FTP) que registran cada intento de conexión, credenciales usadas y payloads enviados. Genera logs detallados de la actividad del atacante.
 **Conceptos:** honeypot, deception technology, threat intelligence, IoC collection.
 
-#### 24. `log_analyzer.py` — Analizador de logs de seguridad
-Parseo de logs de Apache/Nginx, SSH (`/var/log/auth.log`), Windows Event Log y firewalls. Detección de patrones: brute force SSH, escaneos web (SQLi, XSS, LFI), errores 4xx masivos, IPs con múltiples intentos fallidos. Correlación temporal de eventos.
-**Conceptos:** SIEM, correlación de eventos, threat hunting, IOC, log forensics.
+- [x] **24. `log_analyzer.py`** — Analizador de logs de seguridad
+Parseo de logs de Apache/Nginx (access.log). Detección de patrones: fuerza bruta, escaneos web (SQLi, XSS), errores 4xx/5xx masivos. Identifica las IPs más atacantes y correlaciona los eventos detectados.
+**Conceptos:** log parsing, SIEM, threat hunting, regex, incident response.
 
 #### 25. `vuln_scanner.py` — Escáner de vulnerabilidades básico
 Combina port scanning, banner grabbing y correlación con CVE para identificar servicios vulnerables. Verifica misconfigurations comunes: acceso anónimo FTP, Redis/MongoDB sin auth, directorios web expuestos, headers de seguridad faltantes.
