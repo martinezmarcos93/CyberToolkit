@@ -97,7 +97,9 @@ def _build_timeline(target_dir: str, export_csv: bool = False) -> None:
             # Truncar path para no romper la pantalla
             short_path = path if len(path) < 45 else "..." + path[-42:]
             
-            print(f"  {white(date_str)} | {evt_color(event_type[:15]:<15)} | {dim(short_path)}")
+            # Formatear la cadena ANTES de colorear
+            evt_str = f"{event_type[:15]:<15}"
+            print(f"  {white(date_str)} | {evt_color(evt_str)} | {dim(short_path)}")
             
         print()
         

@@ -285,17 +285,17 @@ Analiza la configuración CORS de APIs y aplicaciones web. Detecta: `Access-Cont
 
 ---
 
-### 🔍 v3.2 — Forense digital avanzado
+### ✅ v3.2 — Forense digital avanzado
 
-#### 31. `disk_forensics.py` — Análisis forense de imágenes de disco
+- [x] **31. `disk_forensics.py`** — Análisis forense de imágenes de disco
 Parseo de imágenes `.dd` / `.img`: identificación de particiones, sistemas de archivos, archivos eliminados recuperables (file carving por magic bytes), timeline de actividad, búsqueda de strings y patrones en espacio no asignado.
 **Conceptos:** file carving, slack space, MFT, inodes, cadena de custodia.
 
-#### 32. `memory_analyzer.py` — Análisis básico de volcados de memoria (RAM)
+- [x] **32. `memory_analyzer.py`** — Análisis básico de volcados de memoria (RAM)
 Extracción de strings, URLs, credenciales en claro, procesos activos, conexiones de red y artefactos de malware desde un volcado de memoria `.raw` o `.mem`. Integración con perfiles de Volatility.
 **Conceptos:** memory forensics, volatility, artefactos en RAM, proceso hollowing.
 
-#### 33. `timeline_builder.py` — Constructor de línea de tiempo forense
+- [x] **33. `timeline_builder.py`** — Constructor de línea de tiempo forense
 Correlaciona eventos de múltiples fuentes (logs del sistema, timestamps de archivos, registros de red, metadatos de documentos) y construye una línea de tiempo unificada exportable a CSV/HTML para análisis de incidentes.
 **Conceptos:** timeline analysis, incident response, DFIR, correlación de artefactos.
 

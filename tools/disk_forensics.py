@@ -176,6 +176,7 @@ def _mode_carving() -> None:
 
 def _mode_explain() -> None:
     section_title("¿QUÉ ES EL DFIR Y EL FILE CARVING?")
+    magic_str = r'\xFF\xD8\xFF\xE0'
 
     print(f"""
   {white('1. Digital Forensics and Incident Response (DFIR)')}
@@ -190,7 +191,7 @@ def _mode_explain() -> None:
   el sistema operativo no borra los datos, solo marca el espacio como "Libre".
   El File Carving ignora el sistema de archivos (NTFS/FAT) y lee el disco 
   byte a byte buscando "Firmas" ({cyan('Magic Bytes')}).
-  Ejemplo: Si leemos {cyan('\\xFF\\xD8\\xFF\\xE0')}, sabemos que ahí empieza una 
+  Ejemplo: Si leemos {cyan(magic_str)}, sabemos que ahí empieza una 
   imagen JPEG que supuestamente estaba "borrada".
 
   {white('3. Extracción de Strings')}
