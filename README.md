@@ -265,21 +265,21 @@ Prueba la efectividad de reglas de firewall enviando paquetes de prueba con téc
 
 ---
 
-### 💉 v3.1 — Análisis de vulnerabilidades web
+### ✅ v3.1 — Análisis de vulnerabilidades web
 
-#### 27. `web_crawler.py` — Crawler de aplicaciones web
+- [x] **27. `web_crawler.py`** — Crawler de aplicaciones web
 Mapeo completo de una aplicación web: descubrimiento de endpoints, formularios, parámetros GET/POST, archivos JavaScript, comentarios HTML con información sensible, directorios ocultos (robots.txt, sitemap.xml, .git expuesto).
 **Conceptos:** web scraping, attack surface mapping, information disclosure.
 
-#### 28. `sqli_detector.py` — Detector de inyección SQL
+- [x] **28. `sqli_detector.py`** — Detector de inyección SQL
 Pruebas automatizadas de SQL Injection en parámetros GET/POST: error-based, boolean-based blind, time-based blind. Detección de WAF. Solo para aplicaciones propias o con autorización explícita.
 **Conceptos:** SQLi, prepared statements, WAF, blind injection, OWASP Top 10.
 
-#### 29. `xss_scanner.py` — Escáner de Cross-Site Scripting
+- [x] **29. `xss_scanner.py`** — Escáner de Cross-Site Scripting
 Inyección de payloads XSS en parámetros de formularios y URLs. Detección de reflected XSS, stored XSS y DOM-based XSS. Análisis de Content Security Policy para evaluar la efectividad de las mitigaciones.
 **Conceptos:** XSS, CSP, DOM, input sanitization, OWASP Top 10.
 
-#### 30. `cors_auditor.py` — Auditor de políticas CORS
+- [x] **30. `cors_auditor.py`** — Auditor de políticas CORS
 Analiza la configuración CORS de APIs y aplicaciones web. Detecta: `Access-Control-Allow-Origin: *` con credenciales, reflection de Origin arbitrario, null origin permitido, y misconfiguraciones que permiten CSRF cross-origin.
 **Conceptos:** CORS, SOP, preflight, credenciales cross-origin, API security.
 

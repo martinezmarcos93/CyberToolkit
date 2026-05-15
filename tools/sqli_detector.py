@@ -202,7 +202,7 @@ def _mode_explain() -> None:
   {dim('─' * 56)}
   Cuando una página web recibe un ID por la URL (ej. ?id=1) y lo 
   concatena directamente en la base de datos:
-  {magenta('SELECT * FROM users WHERE id = ' + $_GET['id'])}
+  {magenta("SELECT * FROM users WHERE id = ' + $_GET['id']")}
 
   {white('2. Error-Based SQLi')}
   {dim('─' * 56)}
