@@ -64,6 +64,7 @@ def _import_tools() -> dict[str, object]:
     _try_import("14", "tools.wifi_scanner",       "Escáner de redes Wi-Fi")
     _try_import("15", "tools.hash_cracker",       "Crackeador de hashes")
     _try_import("16", "tools.jwt_analyzer",       "Analizador y manipulador de JWT")
+    _try_import("17", "tools.tls_auditor",        "Auditor de configuración TLS/SSL")
 
     return tools
 
@@ -110,6 +111,7 @@ TOOL_STATUS = {
     "14": "✅",  # Fase 2 — implementada
     "15": "✅",  # Fase 2.1 — implementada
     "16": "✅",  # Fase 2.1 — implementada
+    "17": "✅",  # Fase 2.1 — implementada
 }
 
 TOOL_NAMES = {
@@ -129,6 +131,7 @@ TOOL_NAMES = {
     "14": "Escáner de redes Wi-Fi",
     "15": "Crackeador de hashes",
     "16": "Analizador y manipulador de JWT",
+    "17": "Auditor de configuración TLS/SSL",
 }
 
 
@@ -151,6 +154,7 @@ def _print_full_menu() -> None:
         "14": "Red / Reconocimiento",
         "15": "Criptoanálisis",
         "16": "Criptoanálisis",
+        "17": "Red / Reconocimiento",
     }
 
     print()
@@ -159,7 +163,7 @@ def _print_full_menu() -> None:
     print(f"  {'#':<5} {'Est':<4} {'Herramienta':<36} {'Área'}")
     separator("─", 64)
 
-    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"]:
+    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"]:
         num_fmt  = cyan(f"[{key}]")
         status   = TOOL_STATUS[key]
         name_fmt = white(TOOL_NAMES[key]) if status == "✅" else dim(TOOL_NAMES[key])
