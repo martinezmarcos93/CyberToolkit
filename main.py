@@ -60,6 +60,7 @@ def _import_tools() -> dict[str, object]:
     _try_import("10", "tools.entropy_calc",       "Calculadora de entropía de archivos")
     _try_import("11", "tools.subdomain_enum",     "Enumerador de subdominios")
     _try_import("12", "tools.banner_grabber",     "Grabber de banners de servicios")
+    _try_import("13", "tools.whois_osint",        "OSINT sobre dominios e IPs")
 
     return tools
 
@@ -102,6 +103,7 @@ TOOL_STATUS = {
     "10": "✅",  # Fase 1 — implementada
     "11": "✅",  # Fase 2 — implementada
     "12": "✅",  # Fase 2 — implementada
+    "13": "✅",  # Fase 2 — implementada
 }
 
 TOOL_NAMES = {
@@ -117,6 +119,7 @@ TOOL_NAMES = {
     "10": "Calculadora de entropía de archivos",
     "11": "Enumerador de subdominios",
     "12": "Grabber de banners de servicios",
+    "13": "OSINT sobre dominios e IPs",
 }
 
 
@@ -135,6 +138,7 @@ def _print_full_menu() -> None:
         "10": "Malware / Estadística",
         "11": "OSINT / Reconocimiento",
         "12": "OSINT / Reconocimiento",
+        "13": "Phishing / OSINT",
     }
 
     print()
@@ -143,7 +147,7 @@ def _print_full_menu() -> None:
     print(f"  {'#':<5} {'Est':<4} {'Herramienta':<36} {'Área'}")
     separator("─", 64)
 
-    for key in ["1","2","3","4","5","6","7","8","9","10","11","12"]:
+    for key in ["1","2","3","4","5","6","7","8","9","10","11","12","13"]:
         num_fmt  = cyan(f"[{key}]")
         status   = TOOL_STATUS[key]
         name_fmt = white(TOOL_NAMES[key]) if status == "✅" else dim(TOOL_NAMES[key])
