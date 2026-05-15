@@ -255,11 +255,11 @@ Levanta servicios falsos en puertos comunes (22/SSH, 80/HTTP, 3306/MySQL, 21/FTP
 Parseo de logs de Apache/Nginx (access.log). Detección de patrones: fuerza bruta, escaneos web (SQLi, XSS), errores 4xx/5xx masivos. Identifica las IPs más atacantes y correlaciona los eventos detectados.
 **Conceptos:** log parsing, SIEM, threat hunting, regex, incident response.
 
-#### 25. `vuln_scanner.py` — Escáner de vulnerabilidades básico
+- [x] **25. `vuln_scanner.py`** — Escáner de vulnerabilidades básico
 Combina port scanning, banner grabbing y correlación con CVE para identificar servicios vulnerables. Verifica misconfigurations comunes: acceso anónimo FTP, Redis/MongoDB sin auth, directorios web expuestos, headers de seguridad faltantes.
 **Conceptos:** vulnerability assessment, CVE, CVSS, misconfigurations, attack surface.
 
-#### 26. `firewall_tester.py` — Tester de reglas de firewall
+- [x] **26. `firewall_tester.py`** — Tester de reglas de firewall
 Prueba la efectividad de reglas de firewall enviando paquetes de prueba con técnicas de evasión: fragmentación IP, source port spoofing (puerto 53/80), flags TCP anómalos (FIN scan, XMAS scan, NULL scan), túneles ICMP.
 **Conceptos:** firewall evasion, packet crafting, TCP flags, filtrado de paquetes.
 
