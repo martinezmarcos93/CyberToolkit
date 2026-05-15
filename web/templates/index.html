@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberToolkit Web Dashboard</title>
+    <style>
+        body { font-family: 'Inter', 'Segoe UI', sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
+        .header { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #1e293b; padding-bottom: 20px;}
+        h1 { color: #38bdf8; font-size: 2.5em; margin-bottom: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.4); border-color: #38bdf8; }
+        .card h3 { margin-top: 0; color: #f8fafc; display: flex; align-items: center; justify-content: space-between; font-size: 1.1em;}
+        .card p { color: #94a3b8; font-size: 0.9em;}
+        .status-ok { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #059669; padding: 3px 8px; border-radius: 12px; font-size: 0.75em; font-weight: bold; }
+        .status-pending { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #dc2626; padding: 3px 8px; border-radius: 12px; font-size: 0.75em; font-weight: bold; }
+        .api-docs { max-width: 1400px; margin: 40px auto; background: #1e293b; padding: 30px; border-radius: 8px; border: 1px solid #334155; }
+        .api-docs h2 { color: #38bdf8; margin-top: 0; }
+        .api-endpoint { background: #0f172a; padding: 15px; border-radius: 6px; font-family: monospace; margin-top: 15px; color: #a78bfa; border-left: 4px solid #8b5cf6;}
+        .badge { background: #2563eb; color: white; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8em; margin-right: 10px;}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛡️ CyberToolkit Dashboard</h1>
+        <p style="color: #94a3b8; font-size: 1.1em;">Interfaz de control centralizada y documentación de API REST</p>
+    </div>
+
+    <div class="grid">
+        {% for id, name in tools.items() %}
+        <div class="card">
+            <h3>
+                <span><span style="color:#64748b;">#{{ id }}</span> {{ name }}</span>
+                {% if status[id] == '✅' %}
+                <span class="status-ok">ACTIVO</span>
+                {% else %}
+                <span class="status-pending">DEV</span>
+                {% endif %}
+            </h3>
+            <p>Módulo de ciberseguridad listo para ser invocado localmente o vía API.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="api-docs">
+        <h2>🌐 API REST Integrations</h2>
+        <p style="color: #94a3b8;">La API REST de CyberToolkit permite la integración con herramientas de seguridad externas (SOAR, SIEM, Burp Suite, CI/CD).</p>
+        
+        <div class="api-endpoint">
+            <span class="badge">GET</span> /api/tools<br>
+            <span style="color: #64748b; font-size: 0.9em; display: block; margin-top: 8px;">Retorna el catálogo completo de herramientas y su estado actual en formato JSON.</span>
+        </div>
+        
+        <div class="api-endpoint">
+            <span class="badge">GET</span> /api/reports<br>
+            <span style="color: #64748b; font-size: 0.9em; display: block; margin-top: 8px;">Lista todos los reportes de auditoría exportados (.json, .html, .txt).</span>
+        </div>
+    </div>
+</body>
+</html>

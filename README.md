@@ -317,7 +317,7 @@ Consolida resultados de múltiples herramientas del toolkit y genera reportes pr
 
 ---
 
-### 🌐 v4.1 — Interfaz web y colaboración
+### ✅ v4.1 — Interfaz web y colaboración
 
 #### Web UI con Flask
 Interfaz web ligera que expone las herramientas del toolkit a través de un navegador. Panel de control con resultados en tiempo real via WebSockets, historial de sesiones, gestión de proyectos y exportación de reportes desde el navegador.
