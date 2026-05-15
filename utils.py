@@ -6,6 +6,7 @@ Banner, colores, prefijos de mensaje y validaciones reutilizables.
 import os
 import re
 import socket
+import ipaddress
 
 # ──────────────────────────────────────────────
 #  Colores con colorama (fallback si no está)
@@ -187,10 +188,11 @@ def pause() -> None:
 # ──────────────────────────────────────────────
 def validate_ip(ip: str) -> bool:
     """Valida una dirección IPv4."""
-    pattern = r"^(\d{1,3}\.){3}\d{1,3}$"
-    if not re.match(pattern, ip):
+    try:
+        ipaddress.IPv4Address(ip)
+        return True
+    except ValueError:
         return False
-    return all(0 <= int(octet) <= 255 for octet in ip.split("."))
 
 def validate_hostname(host: str) -> bool:
     """Valida que un hostname se pueda resolver."""
